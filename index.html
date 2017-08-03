@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+			<li>
+				<a href="#home">首页</a>
+			</li>
+			<li>
+				<a href="#content">公司简介</a>
+			</li>
+			<li>
+				<a href="#contact">联系我们</a>
+			</li>
+		</ul>
+		<div id="ui-view"></div>
+	</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="vipspa.js"></script>
+<script>
+	$(function() {
+		vipspa.start({
+			view: '#ui-view',
+			router: {
+				'home': {
+					templateUrl: 'views/home.html',
+					controller: 'js/app/home.js'
+				},
+				'content': {
+					templateUrl: 'views/content.html',
+					controller: 'js/app/content.js'
+				},
+				'contact': {
+					templateUrl: 'views/contact.html',
+					controller: 'js/app/contact.js'
+				},
+				'defaults': 'home' //默认路由
+			},
+			errorTemplateId: '#error' //可选的错误模板，用来处理加载html模块异常时展示错误内容
+		});
+
+	});
+</script>
